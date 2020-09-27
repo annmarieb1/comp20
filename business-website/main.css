@@ -1,0 +1,115 @@
+/* main.css for annmarieb1.github.io */
+
+h1 {
+    /*color: white;
+    size: 50%;
+    font-weight: bold;
+	text-shadow: 2px 2px 3px #222222;*/
+
+    color: white;
+    size: 100px;
+    text-shadow: 2px 2px 3px #222222;
+    /*width: 35%;*/
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    /*background-color: #83aaff;
+    border-radius: 20px;
+    border: 2px solid #ffffff;*/
+    padding: 25px 25px 25px 25px;
+}
+
+body {
+    margin: 0 px;
+    background-color: #f8a2bb;
+}
+
+
+#header {
+    /*width: 100%;*/
+	background-color: #85e9ff;
+    padding: 3px;
+    background-color: #85e9ff;
+    box-shadow: 0 4px 2px -2px #555;
+    /*display: flex;*/
+}
+
+#title {
+    color: white;
+    text-shadow: 2px 2px 3px #222222;
+    font-family: "Arial Black", "Arial", "Times New Roman";
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 30px;
+    /*background-color: #85e9ff;
+    border-radius: 20px;
+    border: 2px solid #ffffff;*/
+    /*display: inline-block; */
+    /* background-color: #aae6ff; rgba(170, 230, 255, 1);  */
+  	/* border-radius: 20px; */
+	/* border: 2px solid #ffffff; */
+    /* padding: 1px; */
+}
+
+#title p {
+    text-size: 24px;
+}
+
+#title a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#title a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+#nav {
+    /*position: sticky;*/
+    /*font-size: 14px;*/
+    text-align: center;
+    font-family: "Arial", "Times New Roman";
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 10px;
+    right: 2%;
+    /*top: 0%; */
+    
+    /*display: inline-block; */
+    /* border-radius: 20px;
+	border: 2px solid #000; */
+}
+
+#content {
+    font-family: "Georgia", "Garamond", "Bookman";
+    /*width: 100%;*/
+    font-size: 16px;
+    padding: 50px;
+    /*background-color: #ffffff;*/
+}
+
+#footer {
+    left: 0;
+    bottom: 0;
+    /*width: 100%;*/
+    padding: 5px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+}
+
+#nav a {
+	color: #4455e0 ;
+}
+
+#nav a:hover {
+	color: #9070ad;
+}
+
+#nav a:visited {
+    color: #412615;
+}
