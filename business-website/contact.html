@@ -10,25 +10,65 @@
     <head>
         <title>Bounder's Buds</title>
         <link rel="stylesheet" href="main.css">
+        <style type="text/css">
+            
+        </style>
     </head>
 	
     <body>
-        <div id="header">
+        <header>
             <div id="title">
-                <p>
-                    BOUNDER'S BUDS
+                <h1>BOUNDER'S BUDS</h1>
+                <h4>#adoptdontshop</h4>
+                <div align="center">
                     <img src="images/Dog-Paw-Print-Outline-Clip-Art.png"
                          width="5%"
                          title="Dog-Paw-Print-Outline-Clip-Art"
                          alt="dog paw print outline clip art" />
-                </p>
+                </div>
             </div>
-            
-            <div id="nav">
-                <a href="home.html">home</a>
-                <a href="services.html">services</a>
-                <a href="contact.html">contact</a>
-            </div>
+        </header>
+        <nav>
+            <a href="home.html">HOME</a>
+            <a href="services.html">SERVICES</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+
+        <div id="content">
+            <h2>Contact Us</h2>
+
+            <form action='#' method='post'>
+                <label>First Name:</label>
+                    <input type="text" name="first_name" id="last_name" required="1">
+                <br />
+                <label>Last Name:</label>
+                    <input type="text" name="name" id="first_name" required="1">
+                <br />
+                <label>Email:</label>
+                    <input type="text" name="email" id="email" required="1">
+                <br />
+                Phone Number: <input type = "number" name="number">
+                <br />
+                <label>Reason:</label>
+                    <select id = "reasonList" required="1">
+                        <option value="blank"></option>
+                        <option value="inquiry">Inquiry</option>
+                        <option value="inquiry">Volunteering</option>
+                        <option value="problem">Problem or Issue</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="other">Other</option>
+                     </select>
+                <br /> 
+                <input type = "submit" value = "Submit">
+            </form>
         </div>
+
+        <footer>
+            <a href="home.html">HOME</a>
+            <a href="services.html">SERVICES</a>
+            <a href="contact.html">CONTACT</a>
+
+            <p>Copyright &copy Ann Marie Burke 2020</p>
+        <footer>
     </body>
 </html>

@@ -16,7 +16,7 @@ h1 {
     /*background-color: #83aaff;
     border-radius: 20px;
     border: 2px solid #ffffff;*/
-    padding: 25px 25px 25px 25px;
+    padding: 5px;
 }
 
 body {
@@ -25,7 +25,7 @@ body {
 }
 
 
-#header {
+header {
     /*width: 100%;*/
 	background-color: #85e9ff;
     padding: 3px;
@@ -67,7 +67,7 @@ body {
     text-decoration: none;
 }
 
-#nav {
+nav {
     /*position: sticky;*/
     /*font-size: 14px;*/
     text-align: center;
@@ -75,52 +75,47 @@ body {
     font-size: 16px;
     font-weight: bold;
     font-style: italic;
-    padding: 10px;
+    padding: 20px;
     right: 2%;
     /*top: 0%; */
+    background-color: #fcf492;
     
     /*display: inline-block; */
     /* border-radius: 20px;
 	border: 2px solid #000; */
 }
 
+nav a {
+    color: #4455e0 ;
+}
+
+nav a:hover {
+    color: #9070ad;
+}
+
+nav:visited {
+    color: #412615;
+}
+
+img {
+    align: center;
+}
+
 #content {
     font-family: "Georgia", "Garamond", "Bookman";
     /*width: 100%;*/
-    text-align: center;
+    /*text-align: center;*/
     font-size: 16px;
-    /*padding: 50px;*/
+    padding: 0px;
     /*background-color: #fff;*/
 }
 
-#who-we-are {
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-    display: inline-block;
-    background-color: #93eeaa;
-    box-shadow: 0 4px 2px -2px #555;
-}
-
-#footer {
+footer {
     bottom: 0;
     padding: 10px;
     display: block;
     color: #ffffff;
     text-align: center;
     font-size: 12px;
-    background-color: #aaa;
-}
-
-#nav a {
-	color: #4455e0 ;
-}
-
-#nav a:hover {
-	color: #9070ad;
-}
-
-#nav a:visited {
-    color: #412615;
+    background-color: #bbd;
 }
