@@ -1,5 +1,3 @@
-/* main.css for annmarieb1.github.io */
-
 h1 {
     /*color: white;
     size: 50%;
@@ -23,7 +21,6 @@ body {
     margin: 0 px;
     background-color: #fff;
 }
-
 
 header {
     /*width: 100%;*/
@@ -51,20 +48,6 @@ header {
   	/* border-radius: 20px; */
 	/* border: 2px solid #ffffff; */
     /* padding: 1px; */
-}
-
-#title p {
-    text-size: 24px;
-}
-
-#title a {
-    color: #fff;
-    text-decoration: none;
-}
-
-#title a:visited {
-    color: #fff;
-    text-decoration: none;
 }
 
 nav {
