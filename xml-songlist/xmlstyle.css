@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+
+song {
+	display:block;
+	border-bottom: 1px solid #eee;
+	padding: 10px;
+	background: #ffffd3;
+}
+
+song artist {
+	display: block;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+song artist:after {
+	content:", ";
+}
+
+song title {
+	font-size: 30px;
+	font-style: italic;
+}
+
+song year {
+	display: block;
+}
+
+song year:before {
+	content:"Year released: ";
+}
+
+song genre:before {
+	content:"Genre: ";
+}
+

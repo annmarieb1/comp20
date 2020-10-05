@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/css" href = "xmlstyle.css" ?>
+<songList>
+    <song>
+        <artist>The Romantics</artist>
+        <title>What I Like About You</title>
+        <year>1979</year>
+        <genre>Pop rock</genre>
+    </song>
+    <song>
+        <artist>Paramore</artist>
+        <title>Brick By Boring Brick</title>
+        <year>2009</year>
+        <genre>Pop punk</genre>
+    </song>
+    <song>
+        <artist>Green Day</artist>
+        <title>Boulevard of Broken Dreams</title>
+        <year>2004</year>
+        <genre>Alternative rock</genre>
+    </song>
+    <song>
+        <artist>Mayday Parade</artist>
+        <title>Angels</title>
+        <year>Pop punk</year>
+        <genre>2013</genre>
+    </song>
+    <song>
+        <artist>Go Radio</artist>
+        <title>Forever My Father</title>
+        <year>2011</year>
+        <genre>Alternative Rock</genre>
+    </song>
+    <song>
+        <artist>Hey Monday</artist>
+        <title>Arizona</title>
+        <year>2008</year>
+        <genre>Pop rock</genre>
+    </song>
+    <song>
+        <artist>Sleeping with Sirens</artist>
+        <title>Go Go Go</title>
+        <year>2015</year>
+        <genre>Pop punk</genre>
+    </song>
+    <song>
+        <artist>Counting Crows</artist>
+        <title>Accidentally in Love</title>
+        <year>2004</year>
+        <genre>Pop rock</genre>
+    </song>
+    <song>
+        <artist>Fleetwood Mac</artist>
+        <title>Go Your Own Way</title>
+        <year>1976</year>
+        <genre>Rock</genre>
+    </song>
+    <song>
+        <artist>Semisonic</artist>
+        <title>Closing Time</title>
+        <year>1998</year>
+        <genre>Alternative rock</genre>
+    </song>
+</songList>
+
+<!-- songlist.xml
+     Ann Marie Burke
+     COMP 20: Web Programming
+     Fall 2020
+     HW 4: XML Song List
+-->
