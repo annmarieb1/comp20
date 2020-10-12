@@ -1,0 +1,123 @@
+<!-- index.html
+     Ann Marie Burke
+     COMP 20: Web Programming
+     Fall 2020
+     HW 5a: Joe's Hotdogs
+ -->
+ <!DOCTYPE html>
+ <html>
+     <head>
+         <title>Joe's Hotdogs</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <style type="text/css">
+            h1 {
+                width: 50%;
+                font-family: Arial;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                padding: 10px;
+                border-radius: 20px;
+                border: 3px solid #000;
+            }
+
+            footer {
+                margin-top: 50px;
+                bottom: 0;
+                padding: 10px;
+                display: block;
+                color: #ffffff;
+                text-align: center;
+                font-size: 12px;
+                background-color: #aaa;
+            }
+        </style>
+     </head>
+     
+     <body>
+         <header>
+            <h1>Joe's Hot Dogs</h1>
+            <h3>Your order:</h3>
+         </header>
+ 
+         <div id="content">
+             <script language="javascript">
+                costPerDog = 3.25;
+                costPerFries = 2.00;
+                costPerDrink = 1.50;
+
+                numHotDogs = 0;
+                numFries = 0;
+                numDrinks = 0;
+                subtotal = 0;
+                newSubtotal = 0;
+                discount = 0;
+                tax = 0;
+                total = 0;
+
+                numHotDogs = prompt("How many hot dogs would you like? ($3.25 each");
+                numHotDogs = parseInt(numHotDogs);
+
+                numFries = prompt("How many orders of fries would you like? ($2.00 each");
+                numFries = parseInt(numFries);
+
+                numDrinks = prompt("How many drinks would you like? ($1.50 each");
+                numDrinks = parseInt(numDrinks);
+
+
+                if (isNaN(numHotDogs) || numHotDogs < 0) {
+                    console.log("NAN");
+                    numHotDogs = 0;
+                }
+                
+                if (isNaN(numFries) || numFries < 0) {
+                    numFries = 0;
+                }
+                
+                if (isNaN(numDrinks) || numDrinks < 0) {
+                    numDrinks = 0;
+                }
+
+                costAllHotDogs = numHotDogs * costPerDog;
+                costAllFries   = numFries   * costPerFries;
+                costAllDrinks  = numDrinks  * costPerDrink;
+
+                subtotal = costAllHotDogs + costAllFries + costAllDrinks;
+                
+                if (subtotal > 20.00) {
+                    discount = (subtotal * 0.1);
+                    newSubtotal = subtotal - discount;
+                } else {
+                    newSubtotal = subtotal;
+                }
+                
+                tax = newSubtotal * 0.0625;
+                total = newSubtotal + tax;
+
+                document.write(numHotDogs + " hotdogs<br>");
+                document.write(numFries + " fries<br>");
+                document.write(numDrinks + " drinks<p>");
+
+                document.write("Subtotal: $" + subtotal.toFixed(2) + "<br>");
+
+                if (discount != 0) {
+                    document.write("- Discount: $" + discount.toFixed(2) + "<br>");
+                    document.write("New subtotal after discount: $" + newSubtotal.toFixed(2) + "<br>");
+                }
+
+                document.write("Tax: $" + tax.toFixed(2) + "<br>");
+
+                document.write("Total: $" + total.toFixed(2) + "<br>");
+            </script>   
+            
+            <img src="joe.png"
+                         title="Joe-says-Thank-You"
+                         alt="[dachshund clipart dog saying 'Enjoy your hot dogs!']"/>
+         </div>
+         
+         <footer>
+             <p>Copyright &copy Joe's Hot Dogs 2020</p>
+         <footer>
+    </body>
+ </html>
+ 
