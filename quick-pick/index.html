@@ -1,0 +1,73 @@
+<!-- index.html
+     Ann Marie Burke
+     COMP 20: Web Programming
+     Fall 2020
+     HW 5a: Joe's Hotdogs
+ -->
+ <!DOCTYPE html>
+ <html>
+     <head>
+         <title>Joe's Hotdogs</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <style type="text/css">
+            h1 {
+                width: 50%;
+                font-family: Arial;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                padding: 10px;
+                /* border-radius: 20px;
+                border: 3px solid #000; */
+            }
+
+            footer {
+                margin-top: 50px;
+                bottom: 0;
+                padding: 10px;
+                display: block;
+                color: #ffffff;
+                text-align: center;
+                font-size: 12px;
+                background-color: #aaa;
+            }
+        </style>
+     </head>
+     
+     <body>
+         <header>
+            <h1>Quick Pick</h1>
+         </header>
+ 
+         <div id="content">
+             <script language="javascript">
+                numNumsNeeded = 5;
+                var numbers = new Array(numNumsNeeded);
+                luckyBall = Math.floor(((Math.random() * 18) + 1));
+
+                for (i = 0; i < numbers.length; i++) {
+                    numbers[i] = Math.floor(((Math.random() * 48) + 1));
+                }
+
+                numbers.sort();
+
+                for (var num in numbers) {
+                    document.write(numbers[i] + " ");
+                }
+
+                winningNumbers = prompt("Enter the first 5 winning numbers of the MA lottery separated with spaces");
+                winningLuckyBall = prompt("Enter the winning lucky ball number of the MA lottery");
+
+                var winningNumbersArray = winningNumbers.split(" ");
+
+
+            </script>   
+            
+         </div>
+         
+         <footer>
+             <p>Copyright &copy Quick Pick 2020</p>
+         <footer>
+    </body>
+ </html>
+ 
