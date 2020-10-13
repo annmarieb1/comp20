@@ -2,7 +2,7 @@
      Ann Marie Burke
      COMP 20: Web Programming
      Fall 2020
-     HW 5a: Joe's Hotdogs
+     HW 5b: Quick Pick
  -->
  <!DOCTYPE html>
  <html>
@@ -37,18 +37,30 @@
  
          <div id="content">
              <script language="javascript">
-                var numbers = new Array(5);
+                numNumbers = 5;
+                var numbers = new Array(numNumbers);
 
                 // get lucky ball number
                 luckyBall = Math.floor(((Math.random() * 18) + 1));
 
+                hasDuplicates = false;
+
                 // get random quick pick numbers
-                for (i = 0; i < numbers.length; i++) {
-                    numbers[i] = Math.floor(((Math.random() * 48) + 1));
+                for (i = 0; i < numNumbers; i++) {
+                    numbers[i] = i; //Math.floor(((Math.random() * 48) + 1));
                 }
 
-                numbers.sort(function(a, b){return a-b}); // sort quick pick by numbers
 
+                // sort by numbers
+                numbers.sort(function(a, b){return a-b});
+
+                // check for duplicates
+                for (i = 1; i < numNumbers; i++) {
+                    while (numbers [i] == numbers[i - 1]) {
+                        numbers[i] = Math.floor(((Math.random() * 48) + 1));
+                    }
+                }
+                
                 // do while input is not valid
                 do {
                     isValid = true;
@@ -73,7 +85,15 @@
                         isValid = false;
                     }
                 } while (!isValid);
-                winningNumsArr.sort(function(a, b){return a-b}); // sort by numbers
+
+                // sort by numbers
+                winningNumsArr.sort(function(a, b){return a-b});
+
+                for (i = 1; i < numNumbers; i++) {
+                    while (winningNumsArr [i] == winningNumsArr[i - 1]) {
+                        winningNumsArr[i] = Math.floor(((Math.random() * 48) + 1));
+                    }
+                }
 
                 const intersection = numbers.filter(element => winningNumsArr.includes(element));
 
@@ -131,13 +151,13 @@
 
                 // PRINTING
                 document.write("Your quick pick numbers: ");
-                for (i = 0; i < numbers.length; i++) {
+                for (i = 0; i < numNumbers; i++) {
                     document.write(numbers[i] + " ");
                 }
                 document.write("<br>");
 
                 document.write("The winning numbers: ");
-                for (i = 0; i < winningNumsArr.length; i++) {
+                for (i = 0; i < numNumbers; i++) {
                     document.write(winningNumsArr[i] + " ");
                 }
                 document.write("<p>");
@@ -159,7 +179,7 @@
          </div>
          
          <footer>
-             <p>Copyright &copy Quick Pick 2020</p>
+             <p>Copyright &copy; Quick Pick 2020</p>
          <footer>
     </body>
  </html>
