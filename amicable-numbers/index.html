@@ -35,17 +35,7 @@
                 function readNumbers() {
                     var num1 = document.getElementById("number_1").value;
                     var num2 = document.getElementById("number_2").value;
-                    document.write(num1 + "<br />");
-                    document.write(num2 + "<br />");
-                }
-
-                // checkAssert checks is input is true
-                function checkAssert(input) {
-                    if (input) {
-                        console.log("Test Passed :)");
-                    } else {
-                        console.log("Test Failed!!!!!!!!!! :)");
-                    }
+                    amicable(num1, num2);
                 }
 
                 // takes two inputs: number and possible factor
@@ -53,16 +43,6 @@
                 function isFactor(num, possible) {
                     return ((num % possible) == 0)
                 }
-
-                // isFactor tests
-                checkAssert(isFactor(1, 1));
-                checkAssert(! isFactor(1, 2));
-                checkAssert(isFactor(2, 1));
-                checkAssert(isFactor(80, 2));
-                checkAssert(! isFactor(80, 72));
-                checkAssert(isFactor(220, 55));
-                checkAssert(isFactor(220, 1));
-                checkAssert(! isFactor(11, 3));
 
                 // showArray takes an array and displays all items in array
                 function showArray(array) {
@@ -73,19 +53,6 @@
                     document.write("<p>");
                 }
 
-                var testArr = new Array(10);
-                var testArr2 = new Array(20);
-                for (i = 0; i < testArr.length; i++) {
-                    testArr[i] = i + 1;
-                }
-                for (i = 0; i < testArr2.length; i++) {
-                    testArr2[i] = 0
-                }
-
-                // showArray tests
-                showArray(testArr);
-                showArray(testArr2);
-
                 // addArray takes an array and returns sum of all elements
                 function addArray(array) {
                     var sum = 0;
@@ -95,10 +62,6 @@
 
                     return sum;
                 }
-
-                // addArray tests
-                console.log(addArray(testArr));
-                console.log(addArray(testArr2));
 
                 // getFactors takes a number as a parameter and
                 // returns an array with all possible factors of the number
@@ -114,13 +77,77 @@
                     return factors;
                 }
 
+                function amicable(num1, num2) {
+                    var factorsNum1 = getFactors(num1);
+                    var sumFactors1 = addArray(factorsNum1);
+
+                    var factorsNum2 = getFactors(num2);
+                    var sumFactors2 = addArray(factorsNum2);
+
+                    document.write(`Factors of ${num1}: &nbsp;`);
+                    showArray(factorsNum1);
+                    document.write(`&nbsp; add up to ${sumFactors1}<p>`);
+
+                    document.write(`Factors of ${num2}: &nbsp;`);
+                    showArray(factorsNum2);
+                    document.write(`&nbsp; add up to ${sumFactors2}<p>`);
+
+                    if ((sumFactors1 == num2) && (sumFactors2 == num1)) {
+                        document.write(`${num1} and ${num2} are amicable!`);
+                    } else {
+                        document.write(`${num1} and ${num2} not amicable :(`)
+                    }
+                }
+
+                /************************* TESTING *************************
+
+                // checkAssert checks is input is true
+                // function used for testing
+                function checkAssert(input) {
+                    if (input) {
+                        console.log("Test Passed :)");
+                    } else {
+                        console.log("Test Failed!!!!!!!!!! :)");
+                    }
+                }
+
+                // isFactor tests
+                checkAssert(isFactor(1, 1));
+                checkAssert(! isFactor(1, 2));
+                checkAssert(isFactor(2, 1));
+                checkAssert(isFactor(80, 2));
+                checkAssert(! isFactor(80, 72));
+                checkAssert(isFactor(220, 55));
+                checkAssert(isFactor(220, 1));
+                checkAssert(! isFactor(11, 3));
+
+
+                // showArray tests
+
+                var testArr = new Array(10);
+                var testArr2 = new Array(20);
+                for (i = 0; i < testArr.length; i++) {
+                    testArr[i] = i + 1;
+                }
+                for (i = 0; i < testArr2.length; i++) {
+                    testArr2[i] = 0
+                }
+
+                showArray(testArr);
+                showArray(testArr2);
+
+
+                // addArray tests
+                console.log(addArray(testArr));
+                console.log(addArray(testArr2));
+
                 // getFactors tests
-                console.log(getFactors(2));
-                console.log(getFactors(10));
-                console.log(getFactors(220));
-                console.log(getFactors(284));
+                console.log("factors of 2: " + getFactors(2));
+                console.log("factors of 10: " + getFactors(10));
+                console.log("factors of 220: " + getFactors(220));
+                console.log("factors of 284: " + getFactors(284));
 
-
+                ************************* TESTING *************************/
 
             </script>
         </div>
