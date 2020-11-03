@@ -1,0 +1,60 @@
+<!-- index.html
+     Ann Marie Burke
+     COMP 20: Web Programming
+     Fall 2020
+     HW 6: Amicable Numbers
+ -->
+ <!DOCTYPE html>
+ <html>
+     <head>
+         <title>Quiz 3</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <script language="javascript">
+            // Create a function called extractDomain() that takes an email address as a string parameter and extracts (and returns) the domain
+            // uses indexOf and substring
+            function extractDomain(email) {
+                var email = email;
+                var idx = email.indexOf('@');
+                var domain = ""
+
+                // if '@' not found there is no domain
+                if (idx == -1) {
+                    var domain = ""
+                } else {
+                    var domain = email.substring(idx + 1);
+                }
+
+                return domain;
+            }
+
+            // // same func as above but uses split
+            // function extractDomain(email) {
+            //     var str = email;
+            //     var res = str.split("@");
+
+            //     return res[1];
+            // }
+
+            // window.onload = function() {
+            //     // Create an event handler that will be executed when the button is pressed.
+            //     document.getElementById("emailBtn").onclick = function()
+            //     {
+            //         var strEmail = document.getEmail.email.value;
+            //         var theDomain = extractDomain(strEmail);
+
+            //         document.getElementById('theDomain').innerHTML = theDomain;
+            //     }
+            // }
+        </script>
+
+     </head>
+     
+     <body>
+        <form name='getEmail' method='get'>
+        Email <input type = 'text' name='email' id='theEmail'><br>
+        <input type = 'button' name ='btn1' id='emailBtn'>
+        </form>
+        <div id='theDomain'></div>
+    </body>
+ </html>
+ 
