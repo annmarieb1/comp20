@@ -2,6 +2,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style type="text/css">
+        form {
+        	font-family: "Georgia";
+            width: 100%;
+            padding: 10px;
+            border: 0px;
+            background-color: #93eeaa;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            width: 100%;
+            padding: 15px 0px 15px 0px;
+            text-align: center;
+            font-family: "Arial";
+            font-style: italic;
+            text-decoration: underline;
+            color: #3883ee;
+            background-color: #fdfd96;
+        }
+    </style>
 	<title>Jade Delight</title>
 </head>
 
@@ -80,8 +101,9 @@
 			$ <input type="text"  name='total' id="total" />
 		</p>
 
-		<input type = "submit" value = "Submit Order" />
+		<input style="background-color: #ff9482; border-radius: 10px;" type = "submit" value = "Submit Order" />
 	</form>
+	<p id="thanks"></p>
 
 	<script>
 		var subtotal = 0.0;
@@ -112,6 +134,7 @@
 		var pickup = document.getElementsByName("p_or_d")[0];
 		document.getElementsByName("street")[0].type = "hidden";
 		document.getElementsByName("city")[0].type = "hidden";
+		document.getElementsByName("phone")[0].value = "(xxx) xxx-xxxx"
 
 		document.addEventListener("click", function(){
 		 	if (pickup.checked) {
@@ -133,15 +156,22 @@
             lname = lname.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
 
             var phone = document.getElementsByName("phone")[0].value;
-            console.log(phone);
-            return false;
-            // if (lname == "") {
-            //     alert("Last name must be filled out");
-            //     return false;
-            // } if (phone == "" || phone.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im)) {
-            // 	alert("Please enter a valid phone number");
-            //     return false;
-            // }
+
+            if (lname == "") {
+                alert("Last name must be filled out");
+                return false;
+            } if (phone == "" || phone.match(/^\s*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})\s*$/im)) {
+            	alert("Please enter a valid phone number");
+                return false;
+            } if (document.getElementsByName("p_or_d")[1].checked) {
+            	var street = document.getElementsByName("street")[0].value;
+            	var city = document.getElementsByName("city")[0].value;
+
+            	if (street == "" || city == "") {
+            		alert("Please enter address");
+            		return false;
+            	}
+            }
             // if (document.getElementById("lname").value == "") {
             //     alert("Last name must be filled out");
             //     return false;
