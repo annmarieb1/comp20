@@ -22,6 +22,10 @@
             color: #3883ee;
             background-color: #fdfd96;
         }
+
+        p {
+        	color: #000;
+        }
     </style>
 	<title>Jade Delight</title>
 </head>
@@ -110,15 +114,35 @@
 		var tax = 0.0;
 		var grandTotal = 0.0;
 
+		// default hidden
+		document.getElementsByName("street")[0].type = "hidden";
+		document.getElementsByName("city")[0].type = "hidden";
+
+		// phone format
+		document.getElementsByName("phone")[0].value = "(xxx) xxx-xxxx"
+
+		// listener for pickup/delivery
+		document.addEventListener("click", function(){
+		 	if (document.getElementsByName("p_or_d")[0].checked) {
+				document.getElementsByName("street")[0].type = "hidden";
+				document.getElementsByName("city")[0].type = "hidden";
+			} else {
+				document.getElementsByName("street")[0].type = "text";
+			    document.getElementsByName("city")[0].type = "text";
+			}
+		});
+
 		function updateTotal(name)
 		{
-			console.log(name);
+			// get index of select changed
 			var idx = parseInt(name[4]);
 
+			// get quantity changed
 			var quantity = document.getElementsByName("quan" + idx)[0];
+			// get value of quantity changed
 			selectedOption = quantity[quantity.selectedIndex].text;
-			console.log(selectedOption);
-			var itemTotal = menuItems[idx].cost * selectedOption
+			// calculate total
+			var itemTotal = menuItems[idx].cost * selectedOption;
 			document.getElementsByName("cost")[idx].value = itemTotal.toFixed(2);
 
 			subtotal += parseFloat(document.getElementsByName("cost")[idx].value);
@@ -130,26 +154,6 @@
 			grandTotal = subtotal + tax;
 			document.getElementById("total").value = grandTotal.toFixed(2);
 		}
-
-		var pickup = document.getElementsByName("p_or_d")[0];
-		document.getElementsByName("street")[0].type = "hidden";
-		document.getElementsByName("city")[0].type = "hidden";
-		document.getElementsByName("phone")[0].value = "(xxx) xxx-xxxx"
-
-		document.addEventListener("click", function(){
-		 	if (pickup.checked) {
-				document.getElementsByName("street")[0].type = "hidden";
-				document.getElementsByName("city")[0].type = "hidden";
-			} else {
-				document.getElementsByName("street")[0].type = "text";
-			    document.getElementsByName("city")[0].type = "text";
-			}
-		});
-
-		console.log(document.getElementsByName("lname")[0]);
-		console.log(document.getElementsByName("phone")[0]);
-
-
 
 		function submitForm() {
             var lname = document.getElementsByName("lname")[0].value;
@@ -172,24 +176,21 @@
             		return false;
             	}
             }
-            // if (document.getElementById("lname").value == "") {
-            //     alert("Last name must be filled out");
-            //     return false;
-            // }
-            // if (document.getElementById("email").value == "" || !document.getElementById("email").value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/im)) {
-            //     alert("Please enter a valid email address");
-            //     return false;
-            // }
-            // if (document.getElementById("phone").value == "" || !document.getElementById("phone").value.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im)) {
-            //     alert("Please enter a valid phone number");
-            //     return false;
-            // }
-            // if (document.getElementById("message").value == "") {
-            //     alert("Message must be filled out");
-            //     return false;
-            // }
-        }
 
+            var d = new Date();
+            var orderTotal = document.getElementById("total").value;
+
+            if (document.getElementsByName("p_or_d")[0].checked) { // if pickup
+            	var time = new Date(d.getTime() + 15 * 60 * 1000); // get 15 min
+            	var thankYouMessage = "<h1>Jade Delight</h1> <p>Thank you for your order! Your total is $" + orderTotal + ". Please pickup your food at " + time + "</p>";
+            	document.write(thankYouMessage);
+
+            } else {
+            	var time = new Date(d.getTime() + 30 * 60 * 1000); // get 30 min
+            	var thankYouMessage = "<h1>Jade Delight</h1> <p>Thank you for your order! Your total is $" + orderTotal + ". Your food will be delivered at " + time + "</p>";
+            	document.write(thankYouMessage); 
+            }
+        }
 		
 	</script>
 </body>
