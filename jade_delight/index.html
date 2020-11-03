@@ -35,7 +35,7 @@
 
 	<h1>Jade Delight</h1>
 	
-	<form>
+	<form onsubmit="return submitForm()">
 		<p>First Name: <input type="text"  name='fname' /></p>
 		<p>Last Name*:  <input type="text"  name='lname' /></p>
 		<p>Street: <input type="text"  name='street' /></p>
@@ -109,15 +109,6 @@
 			document.getElementById("total").value = grandTotal.toFixed(2);
 		}
 
-		document.getElementById("subtotal").onsubmit = 
-		function updateStuff()
-		{
-			var total = 0;
-			// for (i = 0; i < menuItems.length; i++) {
-			// 	total += 
-			// }
-		}
-
 		var pickup = document.getElementsByName("p_or_d")[0];
 		document.getElementsByName("street")[0].type = "hidden";
 		document.getElementsByName("city")[0].type = "hidden";
@@ -131,6 +122,43 @@
 			    document.getElementsByName("city")[0].type = "text";
 			}
 		});
+
+		console.log(document.getElementsByName("lname")[0]);
+		console.log(document.getElementsByName("phone")[0]);
+
+
+
+		function submitForm() {
+            var lname = document.getElementsByName("lname")[0].value;
+            lname = lname.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
+
+            var phone = document.getElementsByName("phone")[0].value;
+            console.log(phone);
+            return false;
+            // if (lname == "") {
+            //     alert("Last name must be filled out");
+            //     return false;
+            // } if (phone == "" || phone.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im)) {
+            // 	alert("Please enter a valid phone number");
+            //     return false;
+            // }
+            // if (document.getElementById("lname").value == "") {
+            //     alert("Last name must be filled out");
+            //     return false;
+            // }
+            // if (document.getElementById("email").value == "" || !document.getElementById("email").value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/im)) {
+            //     alert("Please enter a valid email address");
+            //     return false;
+            // }
+            // if (document.getElementById("phone").value == "" || !document.getElementById("phone").value.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im)) {
+            //     alert("Please enter a valid phone number");
+            //     return false;
+            // }
+            // if (document.getElementById("message").value == "") {
+            //     alert("Message must be filled out");
+            //     return false;
+            // }
+        }
 
 		
 	</script>
