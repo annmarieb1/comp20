@@ -39,13 +39,15 @@
 			genresArr = ["Pop", "Punk", "Rock", "Country"];
 
 			// make select dropdown
-			s = '<select id="genreSelect" onchange="updateList(id)"> <option>-</option>';
+			s = '<select id="genreSelect"> <option>-</option>';
 			genresArr.forEach(
 				function(genre) {
 					s += "<option>" + genre + "</option>";
 				}
 			)
-			s += "</select>";
+			s += "</select><p />";
+
+			s += '<button type="button" onclick="updateList()">Filter</button>'
 			document.getElementById("selectForm").innerHTML = s;
 
 			// Make instance of request object
@@ -107,9 +109,16 @@
 			return str;
 		}
 
+		// function to accumulate string of a song for printing
+		function printTitles(song) {
+			str = "<p>" + song.title + "</p>"
+
+			return str;
+		}
+
 		// function to update song list based on queried genre
-		function updateList(id) {
-			genreSel = document.getElementById(id);
+		function updateList() {
+			genreSel = document.getElementById("genreSelect");
 
 			// get value of selected genre
 			genreQuery = genreSel[genreSel.selectedIndex].text;
@@ -119,6 +128,13 @@
 			// if query is "-", we want all gengres
 			if (genreQuery == "-") {
 				filteredList = setlist;
+
+				// accumulate string for printing
+				filteredList.forEach(
+						function(song) {
+						printList += printSongs(song);
+					}
+				)
 
 				// set raw to have raw data
 				document.getElementById("raw").innerHTML = result;
@@ -132,16 +148,16 @@
 					}
 				)
 
+				// accumulate string for printing
+				filteredList.forEach(
+						function(song) {
+						printList += printTitles(song);
+					}
+				)
+
 				// set raw to not display anything
 				document.getElementById("raw").innerHTML = "";
 			}
-
-			// accumulate string for printing
-			filteredList.forEach(
-					function(song) {
-					printList += printSongs(song);
-				}
-			)
 
 			// set innerHTML to song list
 			document.getElementById("data").innerHTML = printList;
@@ -151,7 +167,6 @@
 
 
 <body onload="loadSongs()">
-
 	<h1>Setlist</h1>
 	
 	<div id="selectForm"></div>
