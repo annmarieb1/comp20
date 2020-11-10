@@ -4,50 +4,33 @@
 	<title>Set List</title>
 	<meta charset="utf-8"/>
 	<script>
-		function loadFile() {
-			var numSongs = 10;
+		var setlist = [];
+		function loadSongs() {
+			var genresArr = ["Pop", "Punk", "Rock", "Country"];
 
-			function songString(song) {
-				str = "<p>" + song.title
-					+ "<br />" + song.artist
-					+ "<br /> Year: " + song.year
-					+ "<br /> Genres: <ul>"
-					
-
-
-				song["genres"].forEach(function(genre) {
-					str += "<li> " + genre + "</li>";
-				})
-
-				str += "</ul> </p>"
-				return str;
-			}
+			s = '<select id="genreSelect" onchange="updateList(name)">';
+			genresArr.forEach(
+				function(genre) {
+					s += "<option>" + genre + "</option>";
+				}
+			)
+			s += "</select>";
+			document.getElementById("selectForm").innerHTML = s;
 
 			/* Make instance of request object
 			 * to make HTTP request after page is loaded
 			 */
 			request = new XMLHttpRequest();
-			console.log("1 - request object created");
  
 			// Set the URL for the request
 			request.open("GET", "https://annmarieb1.github.io/comp20/setlist/setlist.json", true);
-			console.log("2 - opened request file");
  
 			// Set up event handler/callback
-			request.onreadystatechange = function() {
-				console.log("3 - readystatechange event fired.");
- 
+			request.onreadystatechange = function() { 
 				if (request.readyState == 4 && request.status == 200) {
-					console.log("READY STATE 4 STATUS 200")
-
-					// Step 5: wait for done + success
 					printList = "";
 					result = request.responseText;
-					console.log(result);
-					// setlistRawStr = JSON.stringify(result);
 					setlist = JSON.parse(result);
-					console.log(setlist);
-
 					
 					setlist.forEach(
 						function(song) {
@@ -55,7 +38,7 @@
 						}
 					)
 					
-					document.getElementById("raw-data").innerHTML = result;
+					document.getElementById("raw").innerHTML = result;
 
 					document.getElementById("data").innerHTML = printList;
 
@@ -69,22 +52,59 @@
 				}
 
 			}
+			
 			// send request
 			request.send();
 			console.log("4 - Request sent");
+		}
+
+		function songString(song) {
+			str = "<p>" + song.title
+				+ "<br />" + song.artist
+				+ "<br /> Year: " + song.year
+				+ "<br /> Genres: <ul>"
+
+			song["genres"].forEach(function(genre) {
+				str += "<li> " + genre + "</li>";
+			})
+
+			str += "</ul> </p>"
+			return str;
+		}
+
+		function updateList(genre) {
+			printList = ""
+
+			console.log(setlist);
+			// setlist.filter(
+			// 	function(song) {
+			// 		return song["genres"].find != undefined;
+			// 	}
+			// )
+
+			// alert(setlist);
+
+			// setlist.forEach(
+			// 		function(song) {
+			// 		printList += songString(song);
+			// 	}
+			// )
+
+			document.getElementById("data").innerHTML = printList;	
 		}
 	</script>
 </head>
 
 
-<body onload="loadFile()">
+<body onload="loadSongs()">
 
 	<h1>Setlist</h1>
 	
+	<div id="selectForm"></div>
 	<h3>Data</h3>
 	<div id="data">Loading...</div>
 
 	<h3>Raw Data</h3>
-	<div id="raw-data"></div>
+	<div id="raw"></div>
 </body>
 </html>
