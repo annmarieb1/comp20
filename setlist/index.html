@@ -1,14 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
+
+<!-- index.html
+     Ann Marie Burke
+     COMP 20: Web Programming
+     Fall 2020
+     HW 9: Set List JSON
+ -->
+
 <html>
 <head>
 	<title>Set List</title>
 	<meta charset="utf-8"/>
+	<style type="text/css">
+        h1 {
+        	text-align: center;
+        	width: 25%;
+        	margin: 0px;
+        	padding: 10px;
+        	font-family: "Arial";
+        	background-color: #48d8df;
+        	border-radius: 25px;
+        }
+        h2 {
+            font-family: "Arial";
+            font-style: italic;
+            width: 100%;
+            margin: 0px;
+            padding: 10px;
+            border: 0px;
+        }
+        div {
+        	padding: 10px 10px 10px 0px;
+        }
+    </style>
 	<script>
 		var setlist = [];
 		function loadSongs() {
-			var genresArr = ["Pop", "Punk", "Rock", "Country"];
+			genresArr = ["Pop", "Punk", "Rock", "Country"];
 
-			s = '<select id="genreSelect" onchange="updateList(name)">';
+			// make select dropdown
+			s = '<select id="genreSelect" onchange="updateList(id)"> <option>-</option>';
 			genresArr.forEach(
 				function(genre) {
 					s += "<option>" + genre + "</option>";
@@ -17,9 +48,8 @@
 			s += "</select>";
 			document.getElementById("selectForm").innerHTML = s;
 
-			/* Make instance of request object
-			 * to make HTTP request after page is loaded
-			 */
+			// Make instance of request object
+			// to make HTTP request after page is loaded
 			request = new XMLHttpRequest();
  
 			// Set the URL for the request
@@ -29,18 +59,23 @@
 			request.onreadystatechange = function() { 
 				if (request.readyState == 4 && request.status == 200) {
 					printList = "";
+
+					// get data
 					result = request.responseText;
 					setlist = JSON.parse(result);
 					
+					// accumulate string for printing
 					setlist.forEach(
 						function(song) {
-							printList += songString(song);
+							printList += printSongs(song);
 						}
 					)
 					
-					document.getElementById("raw").innerHTML = result;
-
+					// set data to song list
 					document.getElementById("data").innerHTML = printList;
+
+					// set raw to have raw data
+					document.getElementById("raw").innerHTML = result;
 
 				} else if (request.readyState == 4 && request.status != 200) {
 					document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
@@ -52,13 +87,13 @@
 				}
 
 			}
-			
+
 			// send request
 			request.send();
-			console.log("4 - Request sent");
 		}
 
-		function songString(song) {
+		// function to accumulate string of a song for printing
+		function printSongs(song) {
 			str = "<p>" + song.title
 				+ "<br />" + song.artist
 				+ "<br /> Year: " + song.year
@@ -72,25 +107,44 @@
 			return str;
 		}
 
-		function updateList(genre) {
+		// function to update song list based on queried genre
+		function updateList(id) {
+			genreSel = document.getElementById(id);
+
+			// get value of selected genre
+			genreQuery = genreSel[genreSel.selectedIndex].text;
+
 			printList = ""
 
-			console.log(setlist);
-			// setlist.filter(
-			// 	function(song) {
-			// 		return song["genres"].find != undefined;
-			// 	}
-			// )
+			// if query is "-", we want all gengres
+			if (genreQuery == "-") {
+				filteredList = setlist;
 
-			// alert(setlist);
+				// set raw to have raw data
+				document.getElementById("raw").innerHTML = result;
+			}
 
-			// setlist.forEach(
-			// 		function(song) {
-			// 		printList += songString(song);
-			// 	}
-			// )
+			// filter setlist according to genre
+			else {
+				filteredList = setlist.filter(
+					function(song) {
+						return song["genres"].indexOf(genreQuery) != -1;
+					}
+				)
 
-			document.getElementById("data").innerHTML = printList;	
+				// set raw to not display anything
+				document.getElementById("raw").innerHTML = "";
+			}
+
+			// accumulate string for printing
+			filteredList.forEach(
+					function(song) {
+					printList += printSongs(song);
+				}
+			)
+
+			// set innerHTML to song list
+			document.getElementById("data").innerHTML = printList;
 		}
 	</script>
 </head>
