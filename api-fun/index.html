@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+	<title>API Fun!</title>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+        h1 {
+        	width: 50%;
+        	padding: 10px;
+        	color: #9359dd;
+        	font-family: "Arial";
+        }
+        h2 {
+            font-family: "Arial";
+            font-style: italic;
+            width: 100%;
+            margin: 0px;
+            padding: 10px;
+            border: 0px;
+        }
+    </style>
+	<script>
+		function accessAPI() {
+			/* Make instance of request object
+			 * to make HTTP request after page is loaded
+			 */
+			request = new XMLHttpRequest();
+ 
+			// Set the URL for the request
+			request.open("GET", "https://dog.ceo/api/breeds/image/random", true);
+ 
+			// Set up event handler/callback
+			request.onreadystatechange = function() { 
+				if (request.readyState == 4 && request.status == 200) {
+
+					// get response
+					result = request.responseText;
+
+					// parse response
+					parsed = JSON.parse(result);
+
+					// get "message field"
+					dogImage = parsed["message"];
+
+					// string to display dog image
+					displayImage = '<img src="' + dogImage
+							    + '" title="random-dog-image" alt="[image of a dog]" '
+							    + 'width="50%" />'
+					
+					document.getElementById("data").innerHTML = displayImage;
+
+					// document.getElementById("data").innerHTML = setlist;
+				} else if (request.readyState == 4 && request.status != 200) {
+					document.getElementById("data").innerHTML = "Something is wrong!";
+
+				} else if (request.readyState == 3) {
+					document.getElementById("data").innerHTML = "Too soon! Try again";
+				} else {
+					document.getElementById("data").innerHTML = "";
+				}
+
+			}
+
+			// send request
+			request.send();
+		}
+	</script>
+</head>
+
+
+<body onload="accessAPI()">
+
+	<h1>API Fun!</h1>
+	<h2>Here's a random dog picture to brighten your day :)</h2>
+	<br />
+	<div id="data">Loading...</div>
+</body>
+</html>
