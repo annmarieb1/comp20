@@ -30,8 +30,9 @@
 					setlist = JSON.parse(result);
 					console.log(setlist);
 
-					// console.log("setlist raw: " + setlist);
+					console.log("setlist raw: " + setlist);
 					
+					alert(setlist.length());
 					// printList = "<ul>";
 					// setlist.forEach(function(animal) { 
 					//   strHTML += "<li>" + animal.name + " : " + animal.type + "</li>";
@@ -40,7 +41,7 @@
 					
 					document.getElementById("raw-data").innerHTML = setlist;
 
-					document.getElementById("data").innerHTML = setlist;
+					// document.getElementById("data").innerHTML = setlist;
 				}
 				else if (request.readyState == 4 && request.status != 200) {
 
