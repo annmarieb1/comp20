@@ -5,6 +5,21 @@
 	<meta charset="utf-8"/>
 	<script>
 		function loadFile() {
+			var numSongs = 10;
+
+			function songString(song) {
+				str = "<p>" + song.title
+					+ "<br />" + song.artist
+					+ "<br /> Year: " + song.year
+					+ "<br /> Genres: "
+					+ "</p>"
+
+				// song["genres"].forEach(function(genre)) {
+				// 	str += genre;
+				// }
+				return string;
+			}
+
 			/* Make instance of request object
 			 * to make HTTP request after page is loaded
 			 */
@@ -30,18 +45,15 @@
 					setlist = JSON.parse(result);
 					console.log(setlist);
 
-					console.log("setlist raw: " + setlist);
 					
-					// alert(setlist.length());
-					// printList = "<ul>";
-					// setlist.forEach(function(animal) { 
-					//   strHTML += "<li>" + animal.name + " : " + animal.type + "</li>";
-					// }) 
-					// strHTML += "</ul>";
+					setlist.forEach(function(song)) {
+						printList += songString(song);
+					}
 					
 					document.getElementById("raw-data").innerHTML = result;
 
-					document.getElementById("data").innerHTML = "";
+					document.getElementById("data").innerHTML = printList;
+
 				} else if (request.readyState == 4 && request.status != 200) {
 					document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
 
