@@ -1,0 +1,62 @@
+[
+	{
+        "artist": "The Romantics",
+        "title": "What I Like About You",
+        "year": "1979",
+        "genre": ["Pop", "Rock"]
+    },
+    {
+        "artist": "Paramore",
+        "title": "Brick By Boring Brick",
+        "year": "2009",
+        "genre": ["Pop", "Punk"],
+    },
+    {
+        "artist": "Green Day",
+        "title": "Boulevard of Broken Dreams",
+        "year": "2004",
+        "genre": ["Rock"],
+    },
+    {
+        "artist": "Mayday Parade",
+        "title": "Angels",
+        "year": "2013",
+        "genre": ["Rock"],
+    },
+    {
+        "artist": "Go Radio",
+        "title": "Forever My Father",
+        "year": "2011",
+        "genre": ["Rock"],
+    },
+    {
+        "artist": "John Denver",
+        "title": "Take Me Home, Country Roads",
+        "year": "1971",
+        "genre": ["Country"],
+    },
+    {
+        "artist": "Sleeping with Sirens",
+        "title": "Go Go Go",
+        "year": "2015",
+        "genre": ["Pop", "Punk"],
+    },
+    {
+        "artist": "Counting Crows",
+        "title": "Accidentally in Love",
+        "year": "2004",
+        "genre": ["Pop", "Rock"],
+    },
+    {
+        "artist": "Fleetwood Mac",
+        "title": "Go Your Own Way",
+        "year": "1976",
+        "genre": ["Rock"],
+    },
+    {
+        "artist": "Semisonic",
+        "title": "Closing Time",
+        "year": "1998",
+        "genre": ["Rock"],
+    },
+]
