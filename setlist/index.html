@@ -20,11 +20,14 @@
 				console.log("3 - readystatechange event fired.");
  
 				if (request.readyState == 4 && request.status == 200) {
+					console.log("READY STATE 4 STATUS 200")
 
 					// Step 5: wait for done + success
-					printList = ""
+					printList = "";
 					result = request.responseText;
+					alert(result);
 					setlist = JSON.parse(result);
+					console.log(setlist)
 
 					// console.log("setlist raw: " + setlist);
 					
@@ -33,7 +36,7 @@
 					//   strHTML += "<li>" + animal.name + " : " + animal.type + "</li>";
 					// }) 
 					// strHTML += "</ul>";
-					document.getElementById("data").innerHTML = setlist;  
+					// document.getElementById("data").innerHTML = setlist;  
 				}
 				else if (request.readyState == 4 && request.status != 200) {
 
