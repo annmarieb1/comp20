@@ -11,15 +11,15 @@
 				str = "<p>" + song.title
 					+ "<br />" + song.artist
 					+ "<br /> Year: " + song.year
-					+ "<br /> Genres: "
+					+ "<br /> Genres: <ul>"
 					
 
 
 				song["genres"].forEach(function(genre) {
-					str += genre + ", ";
+					str += "<li> " + genre + "</li>";
 				})
 
-				str += "</p>"
+				str += "</ul> </p>"
 				return str;
 			}
 
@@ -80,12 +80,11 @@
 <body onload="loadFile()">
 
 	<h1>Setlist</h1>
-	<div id="raw-data">
-		<h3>Raw Data</h3>
-	</div>
-	<div id="data">
-		<h3>Data</h3>
-		Loading...
-	</div>
+	
+	<h3>Data</h3>
+	<div id="data">Loading...</div>
+
+	<h3>Raw Data</h3>
+	<div id="raw-data"></div>
 </body>
 </html>
