@@ -46,9 +46,11 @@
 					console.log(setlist);
 
 					
-					setlist.forEach(function(song)) {
-						printList += songString(song);
-					}
+					setlist.forEach(
+						function(song) {
+							printList += songString(song);
+						}
+					)
 					
 					document.getElementById("raw-data").innerHTML = result;
 
