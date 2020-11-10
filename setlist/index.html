@@ -12,12 +12,14 @@
 					+ "<br />" + song.artist
 					+ "<br /> Year: " + song.year
 					+ "<br /> Genres: "
-					+ "</p>"
+					
 
 
-				// song["genres"].forEach(function(genre)) {
-				// 	str += genre;
-				// }
+				song["genres"].forEach(function(genre) {
+					str += genre + ", ";
+				})
+
+				str += "</p>"
 				return str;
 			}
 
