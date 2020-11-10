@@ -41,26 +41,18 @@
 					
 					document.getElementById("raw-data").innerHTML = result;
 
-					// document.getElementById("data").innerHTML = setlist;
-				}
-				else if (request.readyState == 4 && request.status != 200) {
+					document.getElementById("data").innerHTML = "";
+				} else if (request.readyState == 4 && request.status != 200) {
+					document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
 
-				document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
-
-				}
-
-				else if (request.readyState == 3) {
-
+				} else if (request.readyState == 3) {
 					document.getElementById("data").innerHTML = "Too soon!  Try again";
-
-				}
-
-				else {
+				} else {
 					document.getElementById("data").innerHTML = "Hang tight...we're trying to get your setlist";
 				}
 
 			}
-		// Step 4: fire off the HTTP request
+			// send request
 			request.send();
 			console.log("4 - Request sent");
 		}
@@ -71,7 +63,12 @@
 <body onload="loadFile()">
 
 	<h1>Setlist</h1>
-	<div id="raw-data"></div>
-	<div id="data">Loading...</div>
+	<div id="raw-data">
+		<h3>Raw Data</h3>
+	</div>
+	<div id="data">
+		<h3>Data</h3>
+		Loading...
+	</div>
 </body>
 </html>
