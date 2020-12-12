@@ -7,6 +7,7 @@ const MongoClient = require('mongodb').MongoClient;
 const dburl = "mongodb+srv://dbAnnMarie:DSZAbxa7c5P6BkB2@cluster0.4ofck.mongodb.net/?retryWrites=true&w=majority";
 var http = require('http');
 var url = require('url');
+var port =  process.env.PORT || 3000;
 
 // Insert company and stock tickers into db
 // Assume companies in companies-1.csv
@@ -118,7 +119,7 @@ http.createServer(function (req, res) {
 
     doEverything(querytxt, qval, res);
 
-}).listen(8080);
+}).listen(port);
 
 
 
