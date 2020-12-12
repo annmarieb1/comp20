@@ -1,0 +1,31 @@
+<!-- index.html
+     Ann Marie Burke
+     COMP 20: Web Programming
+     Fall 2020
+     HW 12: Stock Ticker Mapping App
+ -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stock Ticker Mapping App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            input {
+                border: 1px solid #555;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+	
+    <body>
+        <form action="http://localhost:8080" method="get">
+            <input type="radio" id="radio" name="co_or_sto" value="company" checked="checked"/>Company name
+            <input type="radio" id="radio" name="co_or_sto" value="stockname"/>Stock ticker
+            <p></p>
+            Company name or stock ticker name: <input type="text" name="name">
+            <p></p>
+            <input style="background-color: #ff9482; border-radius: 10px;" id="submitbtn" type="submit" name="submitquery" value="Submit" />
+        </form>
+        
+   </body>
+</html>
