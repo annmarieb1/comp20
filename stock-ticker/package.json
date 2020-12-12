@@ -1,8 +1,13 @@
 {
   "name": "stock-ticker",
   "version": "1.0.0",
-  "description": "",
-  "main": "companies-insert.js",
+  "description": "stock ticker assignment",
+  "main": "hello.js",
+  "start" : "node hello.js",
+  "repository" : {
+    "type" : "git",
+    "url" : ""
+  },
   "dependencies": {
     "mongodb": "^3.6.3"
   },

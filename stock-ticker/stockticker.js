@@ -1,7 +1,7 @@
 // Ann Marie Burke
 // COMP 20
 // Fall 2020
-// node.js
+// stockticker.js
 
 const MongoClient = require('mongodb').MongoClient;
 const dburl = "mongodb+srv://dbAnnMarie:DSZAbxa7c5P6BkB2@cluster0.4ofck.mongodb.net/?retryWrites=true&w=majority";
